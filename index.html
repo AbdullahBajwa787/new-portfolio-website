@@ -56,7 +56,7 @@ html[data-mode="dark"]{
 ::view-transition-old(cal){display:none}
 ::view-transition-new(cal){animation:none}
 ::view-transition-old(cord){display:none}
-/* ---------- 165 FPS Compositing & Ultra Fluid Rendering ---------- */
+/* ---------- 60 FPS Stable & Smooth Rendering ---------- */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -2811,20 +2811,19 @@ if (['#works', '#about', '#contact'].includes(location.hash)){
   });
 })();
 
-/* ---------- Lenis ultra 165fps smooth scroll ---------- */
+/* ---------- 60 FPS Silky Smooth Scroll ---------- */
 try {
   const isCoarse = matchMedia('(hover: none), (pointer: coarse)').matches;
   const { default: Lenis } = await import('lenis');
   lenis = new Lenis({
-    lerp: isCoarse ? 0.14 : 0.12,
-    duration: 0.85,
+    lerp: isCoarse ? 0.1 : 0.08,
+    duration: 1.2,
     smoothWheel: true,
-    wheelMultiplier: 1.18,
-    touchMultiplier: 1.35,
+    wheelMultiplier: 1.0,
+    touchMultiplier: 1.0,
     infinite: false,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    autoResize: true,
-    syncTouch: true
+    autoResize: true
   });
   window.__lenis = lenis;
   if (!scrollEnabled) lenis.stop(); else lenis.start();

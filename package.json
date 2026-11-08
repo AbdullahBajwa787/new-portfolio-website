@@ -1,0 +1,16 @@
+{
+  "name": "new-portfolio-website",
+  "version": "1.0.0",
+  "description": "Abdullah Bajwa's portfolio website",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
